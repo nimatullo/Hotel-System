@@ -3,6 +3,9 @@ package tk.mmvvpp123.HotelClasses;
 import tk.mmvvpp123.User;
 
 import java.io.Serializable;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+import java.util.Calendar;
 
 public class Room implements Serializable {
 
@@ -11,6 +14,9 @@ public class Room implements Serializable {
     private double perNightCost;
     private boolean open;
     private User user;
+    private LocalDate checkIn;
+    private LocalDate checkOut;
+    private int daysOfStay;
 
     public Room(int roomNumber, int bedCount, double perNightCost) {
         this.roomNumber = roomNumber;
@@ -19,8 +25,14 @@ public class Room implements Serializable {
         this.open = true;
     }
 
-    public void setGuestName(User user) {
+    public void closeRoom(User user, int daysOfStay) {
+        this.open = false;
         this.user = user;
+        this.daysOfStay = daysOfStay;
+        this.checkIn = LocalDate.now();
+        this.checkOut = checkIn.plusDays(daysOfStay);
+        System.out.println("Room #" + roomNumber + " is booked by " + user.getName() + ". Check in date is: " + checkIn + " and check out date is: " + checkOut);
+        System.out.println("Total days of stay: " + daysOfStay + "\nTotal will be: $" + perNightCost * daysOfStay);
     }
 
     public String getGuestName() {
@@ -41,9 +53,5 @@ public class Room implements Serializable {
 
     public double getPerNightCost() {
         return perNightCost;
-    }
-
-    public void openRoom(boolean closeOrOpen) {
-        this.open = closeOrOpen;
     }
 }

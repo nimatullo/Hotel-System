@@ -3,12 +3,18 @@ package tk.mmvvpp123.HotelClasses;
 import tk.mmvvpp123.User;
 
 import java.io.*;
+import java.nio.file.Path;
+import java.time.LocalDate;
 
 public class SherzodHotel {
     private Room [] rooms;
 
     public SherzodHotel(){
-        this.rooms = new Room[140];
+        if (new File("rooms.bin").exists()) {
+            this.rooms = load();
+        }
+        else
+            this.rooms = new Room[140];
     }
 
     public void init(int oneSleep, int twoSleep, int threeSleep) {
@@ -30,12 +36,11 @@ public class SherzodHotel {
         }
     }
 
-    public void closeRoom(int roomNumber, User user) {
+    public void closeRoom(int roomNumber, User user, int daysOfStay) {
         for (int i = 0; i < rooms.length; i++) {
             if (rooms[i].getRoomNumber() == roomNumber) {
-                rooms[i].openRoom(false);
-                rooms[i].setGuestName(user);
-                System.out.println("Room #" + roomNumber + " is booked by " + user.getName());
+                rooms[i].closeRoom(user, daysOfStay);
+                save();
             }
         }
     }
