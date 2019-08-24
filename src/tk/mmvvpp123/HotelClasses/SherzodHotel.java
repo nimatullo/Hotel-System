@@ -65,6 +65,17 @@ public class SherzodHotel {
         return null;
     }
 
+    public void checkForStays() {
+        LocalDate currentDay = LocalDate.now();
+        for (int i = 0; i < rooms.length; i++) {
+            if (!rooms[i].isOpen()) {
+                if (rooms[i].getCheckOut().isBefore(currentDay)) {
+                    rooms[i].openRoom();
+                }
+            }
+        }
+    }
+
     public void save() {
         try {
             File userFile = new File("rooms.bin");
@@ -91,6 +102,7 @@ public class SherzodHotel {
             file.close();
 
             System.out.println("Loaded");
+            checkForStays();
         } catch (IOException e) {
             System.out.println(e.getMessage());
         } catch (ClassNotFoundException e) {

@@ -10,6 +10,7 @@ import java.time.temporal.ChronoUnit;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.Scanner;
 
 public class Main {
 
@@ -22,11 +23,16 @@ public class Main {
         Room room = hotel.findOpenRoom(1, 200);
 
         User person = new User("Sherzod Nimatullo", new Card(990383001, "Sherzod Nimatullo", 793, LocalDate.of(2022, 03, 19)), room.getRoomNumber());
-        hotel.closeRoom(person.getRoomNumber(), person, 3);
+        hotel.closeRoom(person.getRoomNumber(), person, 1);
 
         User person2 = new User("Doniyor Nimatullo",
                 new Card(331923, "Doniyor Nimatullo", 003, LocalDate.of(2020, 01, 6)),
                 hotel.findOpenRoom(2, 300).getRoomNumber());
         hotel.closeRoom(person2.getRoomNumber(), person2, 5);
+
+
+        int x = (new Scanner(System.in).nextInt());
+        hotel.load();
+
     }
 }

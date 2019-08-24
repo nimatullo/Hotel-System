@@ -29,10 +29,19 @@ public class Room implements Serializable {
         this.open = false;
         this.user = user;
         this.daysOfStay = daysOfStay;
-        this.checkIn = LocalDate.now();
+        this.checkIn = LocalDate.of(2019, 8, 22);
         this.checkOut = checkIn.plusDays(daysOfStay);
         System.out.println("Room #" + roomNumber + " is booked by " + user.getName() + ". Check in date is: " + checkIn + " and check out date is: " + checkOut);
         System.out.println("Total days of stay: " + daysOfStay + "\nTotal will be: $" + perNightCost * daysOfStay);
+    }
+
+    public void openRoom() {
+        this.user = null;
+        this.open = true;
+        this.daysOfStay = 0;
+        this.checkIn = null;
+        this.checkOut = null;
+        System.out.println("Room #" + roomNumber + " is now open.");
     }
 
     public String getGuestName() {
@@ -53,5 +62,9 @@ public class Room implements Serializable {
 
     public double getPerNightCost() {
         return perNightCost;
+    }
+
+    public LocalDate getCheckOut() {
+        return checkOut;
     }
 }
