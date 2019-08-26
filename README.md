@@ -16,7 +16,7 @@ The User class is responsible for creating a User which will be used when bookin
 - **getRoomNumber** : returns the room number that the user is checked into
 ___
 ### Class: Room
-The Room class is represents a Room in the hotel.
+The Room class represents a Room in the hotel.
 
 **Methods**
 - **closeRoom** : closes the room by putting the room number under the User that is provided. Takes the daysOfStay and determines the checkIn and checkOut dates
