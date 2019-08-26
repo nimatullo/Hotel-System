@@ -7,6 +7,12 @@ void init(int oneSleep, int twoSleep, int threeSleep)
 ```
 Parameters for this method are the number of rooms of each type. One sleep is one bed, two sleep are two beds and so on. Make sure these values add up to 140 or whatever you set the Room [] rooms array max length to.
 
+# Table of Contents
+1. [User Class](#class-user)
+2. [Room Class](#class-room)
+3. [SherzodHotel Class](#class-sherzodhotel)
+3. [TODO](#todo)
+
 ## Program Breakdown
 ### Class: User
 The User class is responsible for creating a User which will be used when booking a Room. A Room requires a User parameter in order for the Room to be booked. 
