@@ -42,7 +42,7 @@ This class is the class that makes everything run. It represents the Hotel.
 - **```closeRoom(int roomNumber, User user, int daysofStay)```** : although this method shares the same name as the method in the Room class, this one is used as a search method in order to close a specified room, therefore, an instance of the room that you'd like to be closed does not need to be created in the main class.
 - **```emptyRooms()```** : returns the number of rooms that are available for stay
 - **```findOpenRoom(int bedCount, double perNightCost)** : returns a room that matches the parameters that are passed into the method
-- **```whoIsIn(int roomNumber)** : returns the name of the guest that is staying at the specified room number
+- **```whoIsIn(int roomNumber)```** : returns the name of the guest that is staying at the specified room number
 - **```findRoomNumberOf(String name)```** : returns the room number of the specified guest
 - **```checkForStays()```** : looks through the entire list of rooms in the hotel to check if anyone is passed their checkout date. If so, that room is made available.
 - **```save()```** : saves the list of rooms to a binary file called "rooms.bin"
