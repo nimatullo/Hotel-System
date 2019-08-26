@@ -57,11 +57,30 @@ public class SherzodHotel {
 
     public Room findOpenRoom(int bedCount, double perNightCost) {
         for (int i = 0; i < rooms.length; i++) {
-            if (rooms[i].getBedCount() == bedCount && rooms[i].getPerNightCost() <= perNightCost) {
+            if (rooms[i].getBedCount() == bedCount && rooms[i].getPerNightCost() <= perNightCost && rooms[i].isOpen()) {
                 System.out.println("Open room at room #: " + rooms[i].getRoomNumber());
                 return rooms[i];
             }
         }
+        return null;
+    }
+
+    public String whoIsIn(int roomNumber) {
+        for (Room roomElement : rooms) {
+            if (roomElement.getRoomNumber() == roomNumber) {
+                return roomElement.getGuestName();
+            }
+        }
+        return "Cannot find room.";
+    }
+
+    public Room findRoomNumberOf(String name) {
+        for (Room roomElement : rooms) {
+            if (roomElement.getGuestName().equals(name)) {
+                return roomElement;
+            }
+        }
+        System.out.println("Can't find the room.");
         return null;
     }
 

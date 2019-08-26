@@ -29,7 +29,7 @@ public class Room implements Serializable {
         this.open = false;
         this.user = user;
         this.daysOfStay = daysOfStay;
-        this.checkIn = LocalDate.of(2019, 8, 22);
+        this.checkIn = LocalDate.now();
         this.checkOut = checkIn.plusDays(daysOfStay);
         System.out.println("Room #" + roomNumber + " is booked by " + user.getName() + ". Check in date is: " + checkIn + " and check out date is: " + checkOut);
         System.out.println("Total days of stay: " + daysOfStay + "\nTotal will be: $" + perNightCost * daysOfStay);
