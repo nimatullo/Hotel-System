@@ -18,14 +18,14 @@ Parameters for this method are the number of rooms of each type. One sleep is on
 The User class is responsible for creating a User which will be used when booking a Room. A Room requires a User parameter in order for the Room to be booked. 
 
 **Methods**
-- **getName** : returns the name of the user
+- **```getName()```** : returns the name of the user
 - **getRoomNumber** : returns the room number that the user is checked into
 ___
 ### Class: Room
 The Room class represents a Room in the hotel.
 
 **Methods**
-- **closeRoom** : closes the room by putting the room number under the User that is provided. Takes the daysOfStay and determines the checkIn and checkOut dates
+- ```closeRoom()``` : closes the room by putting the room number under the User that is provided. Takes the daysOfStay and determines the checkIn and checkOut dates
 - **openRoom** : make the room available for stay
 - **getGuestName** : returns the name of the User in the room
 - **isOpen** : returns true if there is no User that has checked in
@@ -38,7 +38,7 @@ ___
 This class is the class that makes everything run. It represents the Hotel.
 
 **Methods**
-- **init** : fills the list of rooms (Room [] rooms) with the appropriate rooms with the supplied bed counts.
+- **init** : fills the list of rooms (```Room [] rooms```) with the appropriate rooms with the supplied bed counts.
 - **closeRoom** : although this method shares the same name as the method in the Room class, this one is used as a search method in order to close a specified room, therefore, an instance of the room that you'd like to be closed does not need to be created in the main class.
 - **emptyRooms** : returns the number of rooms that are available for stay
 - **findOpenRoom** : returns a room that matches the parameters that are passed into the method
