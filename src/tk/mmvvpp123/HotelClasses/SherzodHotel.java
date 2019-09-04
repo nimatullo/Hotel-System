@@ -71,7 +71,7 @@ public class SherzodHotel {
                 return roomElement.getGuestName();
             }
         }
-        return "Cannot find room.";
+        return "Room is empty";
     }
 
     public Room findRoomNumberOf(String name) {
