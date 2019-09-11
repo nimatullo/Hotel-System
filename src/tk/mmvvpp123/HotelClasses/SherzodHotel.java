@@ -62,12 +62,7 @@ public class SherzodHotel {
     }
 
     public String whoIsIn(int roomNumber) {
-        for (Room roomElement : rooms) {
-            if (roomElement.getRoomNumber() == roomNumber) {
-                return roomElement.getGuestName();
-            }
-        }
-        return "Room is empty";
+        return rooms[roomNumber].getGuestName();
     }
 
     public Room findRoomNumberOf(String name) {
