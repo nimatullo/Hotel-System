@@ -18,7 +18,7 @@ public class SherzodHotel {
     }
 
     public void init(int oneSleep, int twoSleep, int threeSleep) {
-        int roomNumberCounter = 001;
+        int roomNumberCounter = 0;
         for (int i = 0; i < rooms.length; i++) {
             Room createdRoom;
             if (oneSleep != 0) {
@@ -31,18 +31,14 @@ public class SherzodHotel {
                 createdRoom = new Room(roomNumberCounter, 3, 120);
                 threeSleep--;
             }
-            rooms[i] = createdRoom;
             roomNumberCounter++;
+            rooms[i] = createdRoom;
         }
     }
 
     public void closeRoom(int roomNumber, User user, int daysOfStay) {
-        for (int i = 0; i < rooms.length; i++) {
-            if (rooms[i].getRoomNumber() == roomNumber) {
-                rooms[i].closeRoom(user, daysOfStay);
-                save();
-            }
-        }
+        rooms[roomNumber].closeRoom(user, daysOfStay);
+        save();
     }
 
     public int emptyRooms() {

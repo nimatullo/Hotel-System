@@ -17,8 +17,11 @@ public class Main {
     public static void main(String[] args) {
 
         SherzodHotel hotel = new SherzodHotel();
+        hotel.init(30, 30, 80);
+        Room rm = hotel.findOpenRoom(2, 200);
+        User user = new User("sn", new Card(12312, "sn", 987, LocalDate.now()), rm.getRoomNumber());
+        hotel.closeRoom(rm.getRoomNumber(), user, 2);
 
-        hotel.findOpenRoom(1, 300);
 
     }
 }
