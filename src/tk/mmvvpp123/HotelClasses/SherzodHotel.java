@@ -15,6 +15,7 @@ public class SherzodHotel {
         }
         else
             this.rooms = new Room[140];
+        // I'm going to add some comments to see how merges work
     }
 
     public void init(int oneSleep, int twoSleep, int threeSleep) {
