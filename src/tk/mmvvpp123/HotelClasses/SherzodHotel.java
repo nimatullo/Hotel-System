@@ -11,6 +11,7 @@ public class SherzodHotel {
 
     here are some changes
     // Some changes
+    // foo bar
     public SherzodHotel(){
         if (new File("rooms.bin").exists()) {
             this.rooms = load();
